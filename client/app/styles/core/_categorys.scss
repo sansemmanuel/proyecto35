@@ -1,0 +1,58 @@
+.categories {
+  background-color: #17c3b2;
+  border-radius: 40px;
+  height: auto; /* Cambiado de 600px a auto para que se ajuste al contenido */
+  overflow: hidden;
+  position: relative;
+  max-width: 1112px; /* Cambiado de width a max-width */
+  margin: 0 auto; /* Centrar el contenedor */
+}
+
+.categories .text-wrapper {
+  color: #000000;
+  font-family: "Arial-Bold", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  height: 55px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+  margin-top: 30px; /* Ajustado el espacio superior */
+}
+
+.categories .overlap-group-wrapper,
+.categories .overlap-wrapper,
+.categories .div-wrapper {
+  background-color: #ffffff;
+  border-radius: 20px;
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 20px; /* Espacio entre las secciones */
+}
+
+.categories .overlap-group,
+.categories .overlap,
+.categories .overlap-2 {
+  background-image: url(../../../public/images/banners/banner-3.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100%; /* Ajustado a altura del contenedor padre */
+}
+
+.categories .div,
+.categories .div-wrapper .div {
+  color: #000000;
+  font-family: "Arial-Bold", Helvetica;
+  font-size: 36px;
+  font-weight: 700;
+  height: 41px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+  position: relative; /* Ajustado para centrar verticalmente */
+  top: 50%; /* Ajustado para centrar verticalmente */
+  transform: translateY(-50%); /* Ajustado para centrar verticalmente */
+  margin-left: 10%; /* Ajustado para centrar horizontalmente */
+}
