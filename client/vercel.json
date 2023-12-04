@@ -1,3 +1,11 @@
 {
-  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
+  "version": 2,
+  "builds": [
+    { "src": "client/dist/**", "use": "@now/static-build" },
+    { "src": "server/**", "use": "@now/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/server/$1" },
+    { "src": "/(.*)", "dest": "/client/dist/$1" }
+  ]
 }
