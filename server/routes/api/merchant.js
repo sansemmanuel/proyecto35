@@ -20,19 +20,19 @@ router.post('/add', async (req, res) => {
     if (!name || !email) {
       return res
         .status(400)
-        .json({ error: 'You must enter your name and email.' });
+        .json({ error: 'Debes ingresar una direccion de email y su nombre' });
     }
 
     if (!business) {
       return res
         .status(400)
-        .json({ error: 'You must enter a business description.' });
+        .json({ error: 'Debes ingresar una descripcion del negocio' });
     }
 
     if (!phoneNumber || !email) {
       return res
         .status(400)
-        .json({ error: 'You must enter a phone number and an email address.' });
+        .json({ error: 'Debes ingresar un numero de telefono y un email valido' });
     }
 
     const existingMerchant = await Merchant.findOne({ email });
@@ -40,7 +40,7 @@ router.post('/add', async (req, res) => {
     if (existingMerchant) {
       return res
         .status(400)
-        .json({ error: 'That email address is already in use.' });
+        .json({ error: 'El email ingresado ya esta en uso' });
     }
 
     const merchant = new Merchant({
@@ -56,12 +56,12 @@ router.post('/add', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: `We received your request! we will reach you on your phone number ${phoneNumber}!`,
+      message: `Recibimos su solicitud correctamente en breves nos contactaremos a: ${phoneNumber}!`,
       merchant: merchantDoc
     });
   } catch (error) {
     return res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -88,7 +88,7 @@ router.get('/search', auth, role.check(ROLES.Admin), async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -115,7 +115,7 @@ router.get('/', auth, role.check(ROLES.Admin), async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -141,7 +141,7 @@ router.put('/:id/active', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -172,7 +172,7 @@ router.put('/approve/:id', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -196,7 +196,7 @@ router.put('/reject/:id', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -208,15 +208,15 @@ router.post('/signup/:token', async (req, res) => {
     if (!email) {
       return res
         .status(400)
-        .json({ error: 'You must enter an email address.' });
+        .json({ error: 'Debes ingresar una direccion de email' });
     }
 
     if (!firstName || !lastName) {
-      return res.status(400).json({ error: 'You must enter your full name.' });
+      return res.status(400).json({ error: 'Debes ingresar el nombre completo' });
     }
 
     if (!password) {
-      return res.status(400).json({ error: 'You must enter a password.' });
+      return res.status(400).json({ error: 'Debes ingresar una contraseña' });
     }
 
     const userDoc = await User.findOne({
@@ -251,7 +251,7 @@ router.post('/signup/:token', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -268,12 +268,12 @@ router.delete(
 
       res.status(200).json({
         success: true,
-        message: `Merchant has been deleted successfully!`,
+        message: `Comerciante eliminado correctamente`,
         merchant
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }

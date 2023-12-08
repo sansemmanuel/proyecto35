@@ -18,12 +18,12 @@ router.post('/add', auth, async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: `Address has been added successfully!`,
+      message: `Direccion agregada correctamente!`,
       address: addressDoc
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -38,7 +38,7 @@ router.get('/', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -51,7 +51,7 @@ router.get('/:id', async (req, res) => {
 
     if (!addressDoc) {
       res.status(404).json({
-        message: `Cannot find Address with the id: ${addressId}.`
+        message: `No se puede encontrar direccion con id: ${addressId}.`
       });
     }
 
@@ -60,7 +60,7 @@ router.get('/:id', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -77,11 +77,11 @@ router.put('/:id', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'Address has been updated successfully!'
+      message: 'Direccion actualizada correctamente!'
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -92,12 +92,12 @@ router.delete('/delete/:id', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: `Address has been deleted successfully!`,
+      message: `Direccion ha sido borrada correctamente!`,
       address
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });

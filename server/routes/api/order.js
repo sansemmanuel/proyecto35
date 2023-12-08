@@ -44,12 +44,12 @@ router.post('/add', auth, async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: `Your order has been placed successfully!`,
+      message: `Su orden ya ha sido ingresada`,
       order: { _id: orderDoc._id }
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -119,7 +119,7 @@ router.get('/search', auth, async (req, res) => {
     }
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -154,7 +154,7 @@ router.get('/', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -192,7 +192,7 @@ router.get('/me', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -229,7 +229,7 @@ router.get('/:orderId', auth, async (req, res) => {
 
     if (!orderDoc || !orderDoc.cart) {
       return res.status(404).json({
-        message: `Cannot find order with the id: ${orderId}.`
+        message: `No se puede encontrar una orden con el id: ${orderId}.`
       });
     }
 
@@ -249,7 +249,7 @@ router.get('/:orderId', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -271,7 +271,7 @@ router.delete('/cancel/:orderId', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -313,24 +313,24 @@ router.put('/status/item/:itemId', auth, async (req, res) => {
           success: true,
           orderCancelled: true,
           message: `${
-            req.user.role === ROLES.Admin ? 'Order' : 'Your order'
-          } has been cancelled successfully`
+            req.user.role === ROLES.Admin ? 'Orden' : 'Su orden'
+          } ha sido cancelada correctamente`
         });
       }
 
       return res.status(200).json({
         success: true,
-        message: 'Item has been cancelled successfully!'
+        message: 'El item fue cancelado correctamente'
       });
     }
 
     res.status(200).json({
       success: true,
-      message: 'Item status has been updated successfully!'
+      message: 'El status del item se ha actualizado correctamente'
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });

@@ -8,7 +8,7 @@ router.post('/subscribe', async (req, res) => {
   const email = req.body.email;
 
   if (!email) {
-    return res.status(400).json({ error: 'You must enter an email address.' });
+    return res.status(400).json({ error: 'Debes ingresar una direccion de email' });
   }
 
   const result = await mailchimp.subscribeToNewsletter(email);
@@ -21,7 +21,7 @@ router.post('/subscribe', async (req, res) => {
 
   res.status(200).json({
     success: true,
-    message: 'You have successfully subscribed to the newsletter'
+    message: 'Se ha suscrito correctamente'
   });
 });
 

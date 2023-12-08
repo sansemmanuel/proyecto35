@@ -30,7 +30,7 @@ router.get('/search', auth, role.check(ROLES.Admin), async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -57,7 +57,7 @@ router.get('/', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -79,7 +79,7 @@ router.get('/me', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -96,12 +96,12 @@ router.put('/', auth, async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'Your profile is successfully updated!',
+      message: 'Su perfil se ha actualizado correctamente',
       user: userDoc
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });

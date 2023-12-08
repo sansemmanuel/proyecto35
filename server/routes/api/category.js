@@ -18,7 +18,7 @@ router.post('/add', auth, role.check(ROLES.Admin), (req, res) => {
   if (!description || !name) {
     return res
       .status(400)
-      .json({ error: 'You must enter description & name.' });
+      .json({ error: 'Debes ingresar descripcion y nombre' });
   }
 
   const category = new Category({
@@ -31,13 +31,13 @@ router.post('/add', auth, role.check(ROLES.Admin), (req, res) => {
   category.save((err, data) => {
     if (err) {
       return res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
 
     res.status(200).json({
       success: true,
-      message: `Category has been added successfully!`,
+      message: `Categoria agregada correctamente`,
       category: data
     });
   });
@@ -52,7 +52,7 @@ router.get('/list', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -66,7 +66,7 @@ router.get('/', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -83,7 +83,7 @@ router.get('/:id', async (req, res) => {
 
     if (!categoryDoc) {
       return res.status(404).json({
-        message: 'No Category found.'
+        message: 'No se ha encontrado categoria.'
       });
     }
 
@@ -92,7 +92,7 @@ router.get('/:id', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -118,11 +118,11 @@ router.put('/:id', auth, role.check(ROLES.Admin), async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'Category has been updated successfully!'
+      message: 'Categoria actualizada correctamente'
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -149,11 +149,11 @@ router.put('/:id/active', auth, role.check(ROLES.Admin), async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'Category has been updated successfully!'
+      message: 'Categoria actualizada correctamente'
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -168,12 +168,12 @@ router.delete(
 
       res.status(200).json({
         success: true,
-        message: `Category has been deleted successfully!`,
+        message: `Categoria eliminada correctamente`,
         product
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }

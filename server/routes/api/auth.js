@@ -23,23 +23,23 @@ router.post('/login', async (req, res) => {
     if (!email) {
       return res
         .status(400)
-        .json({ error: 'You must enter an email address.' });
+        .json({ error: 'Debes ingresar un email' });
     }
 
     if (!password) {
-      return res.status(400).json({ error: 'You must enter a password.' });
+      return res.status(400).json({ error: 'Debes ingresar una contraseña' });
     }
 
     const user = await User.findOne({ email });
     if (!user) {
       return res
         .status(400)
-        .send({ error: 'No user found for this email address.' });
+        .send({ error: 'No hay ningun usuario registrado con el email ingresado' });
     }
 
     if (user && user.provider !== EMAIL_PROVIDER.Email) {
       return res.status(400).send({
-        error: `That email address is already in use using ${user.provider} provider.`
+        error: `El email ingresado ya esta en uso ${user.provider} .`
       });
     }
 
@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({
         success: false,
-        error: 'Password Incorrect'
+        error: 'Contraseña incorrecta'
       });
     }
 
@@ -75,7 +75,7 @@ router.post('/login', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -87,15 +87,15 @@ router.post('/register', async (req, res) => {
     if (!email) {
       return res
         .status(400)
-        .json({ error: 'You must enter an email address.' });
+        .json({ error: 'Debes ingresar un email' });
     }
 
     if (!firstName || !lastName) {
-      return res.status(400).json({ error: 'You must enter your full name.' });
+      return res.status(400).json({ error: 'Debes ingresar nombre completo' });
     }
 
     if (!password) {
-      return res.status(400).json({ error: 'You must enter a password.' });
+      return res.status(400).json({ error: 'Debes ingresar una contraseña' });
     }
 
     const existingUser = await User.findOne({ email });
@@ -103,14 +103,14 @@ router.post('/register', async (req, res) => {
     if (existingUser) {
       return res
         .status(400)
-        .json({ error: 'That email address is already in use.' });
+        .json({ error: 'El email ingresado ya esta en uso' });
     }
 
     let subscribed = false;
     if (isSubscribed) {
       const result = await mailchimp.subscribeToNewsletter(email);
 
-      if (result.status === 'subscribed') {
+      if (result.status === 'suscrito') {
         subscribed = true;
       }
     }
@@ -134,7 +134,7 @@ router.post('/register', async (req, res) => {
 
     await mailgun.sendEmail(
       registeredUser.email,
-      'signup',
+      'Registrar',
       null,
       registeredUser
     );
@@ -155,7 +155,7 @@ router.post('/register', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -167,7 +167,7 @@ router.post('/forgot', async (req, res) => {
     if (!email) {
       return res
         .status(400)
-        .json({ error: 'You must enter an email address.' });
+        .json({ error: 'Debe ingresar un email' });
     }
 
     const existingUser = await User.findOne({ email });
@@ -175,7 +175,7 @@ router.post('/forgot', async (req, res) => {
     if (!existingUser) {
       return res
         .status(400)
-        .send({ error: 'No user found for this email address.' });
+        .send({ error: 'El email ingresado no tiene ningun usuario vinculado' });
     }
 
     const buffer = crypto.randomBytes(48);
@@ -195,11 +195,11 @@ router.post('/forgot', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'Please check your email for the link to reset your password.'
+      message: 'Por favor revise su email para restablecer la contraseña'
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -209,7 +209,7 @@ router.post('/reset/:token', async (req, res) => {
     const { password } = req.body;
 
     if (!password) {
-      return res.status(400).json({ error: 'You must enter a password.' });
+      return res.status(400).json({ error: 'Debes ingresar una contraseña' });
     }
 
     const resetUser = await User.findOne({
@@ -220,7 +220,7 @@ router.post('/reset/:token', async (req, res) => {
     if (!resetUser) {
       return res.status(400).json({
         error:
-          'Your token has expired. Please attempt to reset your password again.'
+          'Token expirado reintente reestablecer la contraseña de nuevo'
       });
     }
 
@@ -238,11 +238,11 @@ router.post('/reset/:token', async (req, res) => {
     res.status(200).json({
       success: true,
       message:
-        'Password changed successfully. Please login with your new password.'
+        'Contraseña restablecida correctamente!'
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -257,14 +257,14 @@ router.post('/reset', auth, async (req, res) => {
     }
 
     if (!password) {
-      return res.status(400).json({ error: 'You must enter a password.' });
+      return res.status(400).json({ error: 'Debes ingresar un email' });
     }
 
     const existingUser = await User.findOne({ email });
     if (!existingUser) {
       return res
         .status(400)
-        .json({ error: 'That email address is already in use.' });
+        .json({ error: 'El email ingresado ya esta en uso' });
     }
 
     const isMatch = await bcrypt.compare(password, existingUser.password);
@@ -272,7 +272,7 @@ router.post('/reset', auth, async (req, res) => {
     if (!isMatch) {
       return res
         .status(400)
-        .json({ error: 'Please enter your correct old password.' });
+        .json({ error: 'Por favor ingrese la contraseña antigua correctamente' });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -285,11 +285,11 @@ router.post('/reset', auth, async (req, res) => {
     res.status(200).json({
       success: true,
       message:
-        'Password changed successfully. Please login with your new password.'
+        'Contraseña restablecida correctamente'
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });

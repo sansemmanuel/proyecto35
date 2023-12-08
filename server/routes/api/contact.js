@@ -14,17 +14,17 @@ router.post('/add', async (req, res) => {
     if (!email) {
       return res
         .status(400)
-        .json({ error: 'You must enter an email address.' });
+        .json({ error: 'Debes ingresar una direccion de email' });
     }
 
     if (!name) {
       return res
         .status(400)
-        .json({ error: 'You must enter description & name.' });
+        .json({ error: 'Debes ingresar una descripcion y nombre' });
     }
 
     if (!message) {
-      return res.status(400).json({ error: 'You must enter a message.' });
+      return res.status(400).json({ error: 'Debes ingresar un mensaje' });
     }
 
     const existingContact = await Contact.findOne({ email });
@@ -32,7 +32,7 @@ router.post('/add', async (req, res) => {
     if (existingContact) {
       return res
         .status(400)
-        .json({ error: 'A request already existed for same email address' });
+        .json({ error: 'Ya existe un reclamo con esa direccion de email' });
     }
 
     const contact = new Contact({
@@ -47,12 +47,12 @@ router.post('/add', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: `We receved your message, we will reach you on your email address ${email}!`,
+      message: `Recibimos tu mensaje correctamente en breves te contactaremos a: ${email}!`,
       contact: contactDoc
     });
   } catch (error) {
     return res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });

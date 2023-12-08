@@ -20,12 +20,12 @@ router.post('/add', auth, async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: `Your review has been added successfully and will appear when approved!`,
+      message: `Su reseña se ha registrado correctamente,se le notificara cuando se apruebe!`,
       review: reviewDoc
     });
   } catch (error) {
     return res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -59,7 +59,7 @@ router.get('/', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -73,7 +73,7 @@ router.get('/:slug', async (req, res) => {
 
     if (!productDoc || hasNoBrand) {
       return res.status(404).json({
-        message: 'No product found.'
+        message: 'No se ha encontrado producto'
       });
     }
 
@@ -109,11 +109,11 @@ router.put('/:id', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'review has been updated successfully!'
+      message: 'Reseña actualizada correctamente!'
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -138,7 +138,7 @@ router.put('/approve/:reviewId', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -162,7 +162,7 @@ router.put('/reject/:reviewId', auth, async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -173,12 +173,12 @@ router.delete('/delete/:id', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: `review has been deleted successfully!`,
+      message: `La reseña se ha eliminado correctamente!`,
       review
     });
   } catch (error) {
     return res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });

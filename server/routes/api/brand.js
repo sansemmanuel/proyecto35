@@ -19,7 +19,7 @@ router.post('/add', auth, role.check(ROLES.Admin), async (req, res) => {
     if (!description || !name) {
       return res
         .status(400)
-        .json({ error: 'You must enter description & name.' });
+        .json({ error: 'Debes ingresar una descripcion y un nombre' });
     }
 
     const brand = new Brand({
@@ -32,12 +32,12 @@ router.post('/add', auth, role.check(ROLES.Admin), async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: `Brand has been added successfully!`,
+      message: `Marca registrada correctamente!`,
       brand: brandDoc
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -54,7 +54,7 @@ router.get('/list', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -81,7 +81,7 @@ router.get(
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }
@@ -98,7 +98,7 @@ router.get('/:id', async (req, res) => {
 
     if (!brandDoc) {
       return res.status(404).json({
-        message: `Cannot find brand with the id: ${brandId}.`
+        message: `No se puede encontrar marca con id: ${brandId}.`
       });
     }
 
@@ -107,7 +107,7 @@ router.get('/:id', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -136,7 +136,7 @@ router.get(
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }
@@ -167,11 +167,11 @@ router.put(
 
       res.status(200).json({
         success: true,
-        message: 'Brand has been updated successfully!'
+        message: 'Marca actualizada correctamente'
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }
@@ -199,11 +199,11 @@ router.put(
 
       res.status(200).json({
         success: true,
-        message: 'Brand has been updated successfully!'
+        message: 'Marca actualizada correctamente'
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }
@@ -221,12 +221,12 @@ router.delete(
 
       res.status(200).json({
         success: true,
-        message: `Brand has been deleted successfully!`,
+        message: `Se ha borrado la marca correctamente`,
         brand
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }

@@ -46,7 +46,7 @@ router.get('/item/:slug', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -63,7 +63,7 @@ router.get('/list/search/:name', async (req, res) => {
 
     if (productDoc.length < 0) {
       return res.status(404).json({
-        message: 'No product found.'
+        message: 'No se ha encontrado el producto'
       });
     }
 
@@ -72,7 +72,7 @@ router.get('/list/search/:name', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -142,7 +142,7 @@ router.get('/list', async (req, res) => {
   } catch (error) {
     console.log('error', error);
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -234,7 +234,7 @@ router.get('/list/brand/:slug', async (req, res) => {
     }
   } catch (error) {
     res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
+      error: 'Su solicitud no pudo ser procesada correctamente!'
     });
   }
 });
@@ -272,27 +272,27 @@ router.post(
       const image = req.file;
 
       if (!sku) {
-        return res.status(400).json({ error: 'You must enter sku.' });
+        return res.status(400).json({ error: 'Debes ingresar un sku.' });
       }
 
       if (!description || !name) {
         return res
           .status(400)
-          .json({ error: 'You must enter description & name.' });
+          .json({ error: 'Debes ingresar una descripcion y un nombre.' });
       }
 
       if (!quantity) {
-        return res.status(400).json({ error: 'You must enter a quantity.' });
+        return res.status(400).json({ error: 'Debes ingresar una cantidad.' });
       }
 
       if (!price) {
-        return res.status(400).json({ error: 'You must enter a price.' });
+        return res.status(400).json({ error: 'Debes ingresar un precio.' });
       }
 
       const foundProduct = await Product.findOne({ sku });
 
       if (foundProduct) {
-        return res.status(400).json({ error: 'This sku is already in use.' });
+        return res.status(400).json({ error: 'El sku proporcionado ya esta en uso.' });
       }
 
       const { imageUrl, imageKey } = await s3Upload(image);
@@ -314,12 +314,12 @@ router.post(
 
       res.status(200).json({
         success: true,
-        message: `Product has been added successfully!`,
+        message: `Su producto se ha agregado correctamente`,
         product: savedProduct
       });
     } catch (error) {
       return res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }
@@ -365,7 +365,7 @@ router.get(
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }
@@ -413,7 +413,7 @@ router.get(
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }
@@ -437,7 +437,7 @@ router.put(
       if (foundProduct && foundProduct._id != productId) {
         return res
           .status(400)
-          .json({ error: 'Sku or slug is already in use.' });
+          .json({ error: 'Sku o slug ya esta en uso.' });
       }
 
       await Product.findOneAndUpdate(query, update, {
@@ -446,11 +446,11 @@ router.put(
 
       res.status(200).json({
         success: true,
-        message: 'Product has been updated successfully!'
+        message: 'Producto actualizado correctamente!'
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }
@@ -472,11 +472,11 @@ router.put(
 
       res.status(200).json({
         success: true,
-        message: 'Product has been updated successfully!'
+        message: 'Producto actualizado correctamente'
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }
@@ -492,12 +492,12 @@ router.delete(
 
       res.status(200).json({
         success: true,
-        message: `Product has been deleted successfully!`,
+        message: `El producto se ha eliminado correctamente`,
         product
       });
     } catch (error) {
       res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
+        error: 'Su solicitud no pudo ser procesada correctamente!'
       });
     }
   }

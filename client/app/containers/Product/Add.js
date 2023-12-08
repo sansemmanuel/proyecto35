@@ -31,8 +31,8 @@ class Add extends React.PureComponent {
 
     return (
       <SubPage
-        title='Add Product'
-        actionTitle='Cancel'
+        title='Agregar Producto'
+        actionTitle='Cancelar'
         handleAction={() => history.goBack()}
       >
         <AddProduct
@@ -53,7 +53,7 @@ const mapStateToProps = state => {
     user: state.account.user,
     productFormData: state.product.productFormData,
     formErrors: state.product.formErrors,
-    brands: state.brand.brandsSelect
+  brands: state.brand.brandsSelect
   };
 };
 
