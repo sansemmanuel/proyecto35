@@ -128,7 +128,7 @@ class Navigation extends React.PureComponent {
     } = this.props;
 
     const inputProps = {
-      placeholder: 'Search Products',
+      placeholder: 'Buscar Productos',
       value: searchValue,
       onChange: (_, { newValue }) => {
         onSearch(newValue);
@@ -154,7 +154,7 @@ class Navigation extends React.PureComponent {
               </Col>
               <Col xs='12' className='text-center d-block d-md-none'>
                 <i className='fa fa-phone' />
-                <span> Need advice? Call us 951-999-9999</span>
+                <span> Necesita ayuda? Llame al 223</span>
               </Col>
             </Row>
           </Container>
@@ -180,7 +180,7 @@ class Navigation extends React.PureComponent {
                   />
                 )}
                 <Link to='/'>
-                  <h1 className='logo'>MERN Store</h1>
+                  <h1 className='logo'>Sin Igual Como Tu </h1>
                 </Link>
               </div>
             </Col>
@@ -268,7 +268,7 @@ class Navigation extends React.PureComponent {
                   {authenticated ? (
                     <UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav>
-                        {user.firstName ? user.firstName : 'Welcome'}
+                        {user.firstName ? user.firstName : 'Bienvenido'}
                         <span className='fa fa-chevron-down dropdown-caret'></span>
                       </DropdownToggle>
                       <DropdownMenu right>
