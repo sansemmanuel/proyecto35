@@ -241,7 +241,7 @@ class Navigation extends React.PureComponent {
       Categorías
       <span className='fa fa-chevron-down dropdown-caret'></span>
     </DropdownToggle>
-    <DropdownMenu>
+    <DropdownMenu right>
       {categories.map(category => (
         <DropdownItem key={category.id}>
           <NavLink tag={Link} to={`/category/${category.slug}`}>
@@ -252,6 +252,7 @@ class Navigation extends React.PureComponent {
     </DropdownMenu>
   </Dropdown>
 )}
+
                   <NavItem>
                     <NavLink
                       tag={ActiveLink}
