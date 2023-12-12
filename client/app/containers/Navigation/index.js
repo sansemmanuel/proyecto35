@@ -235,27 +235,23 @@ class Navigation extends React.PureComponent {
                   onClick={toggleCart}
                 />
                 <Nav navbar>
-                  {brands && brands.length > 0 && (
-                    <Dropdown
-                      nav
-                      inNavbar
-                      toggle={() => this.toggleBrand()}
-                      isOpen={isBrandOpen}
-                    >
-                      <DropdownToggle nav>
-                        Brands
-                        <span className='fa fa-chevron-down dropdown-caret'></span>
-                      </DropdownToggle>
-                      <DropdownMenu right className='nav-brand-dropdown'>
-                        <div className='mini-brand'>
-                          <MiniBrand
-                            brands={brands}
-                            toggleBrand={() => this.toggleBrand()}
-                          />
-                        </div>
-                      </DropdownMenu>
-                    </Dropdown>
-                  )}
+                {categories && categories.length > 0 && (
+  <Dropdown nav inNavbar>
+    <DropdownToggle nav>
+      Categorías
+      <span className='fa fa-chevron-down dropdown-caret'></span>
+    </DropdownToggle>
+    <DropdownMenu>
+      {categories.map(category => (
+        <DropdownItem key={category.id}>
+          <NavLink tag={Link} to={`/category/${category.slug}`}>
+            {category.name}
+          </NavLink>
+        </DropdownItem>
+      ))}
+    </DropdownMenu>
+  </Dropdown>
+)}
                   <NavItem>
                     <NavLink
                       tag={ActiveLink}
