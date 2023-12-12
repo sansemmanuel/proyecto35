@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../../styles/core/_categorys.scss'; 
+import { Card } from "./card";
 
 export const categories = () => {
     return (
