@@ -10,9 +10,9 @@ export const categories = () => {
         <div className="card-2" />
       </div>
       <div className="card-3" />
-    //  <div className="card-4" />
+      <div className="card-4" />
       <Card className="card-instance" ribbonType="sale" status="normal" type="item-category" />
-    //  <div className="card-5" />
+      <div className="card-5" />
     </div>
   );
 };

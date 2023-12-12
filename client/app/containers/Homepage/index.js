@@ -10,7 +10,6 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
-import Categories from '../../components/Common/Categories';
 
 import actions from '../../actions';
 import banners from './banners.json';
@@ -45,7 +44,6 @@ class Homepage extends React.PureComponent {
         <div className='color-bar' style={{ backgroundColor:'white' , height: 10 }}>
       {/*div jeje*/}
     </div>
-    <Categories categories={Categories} />
 
 
     
