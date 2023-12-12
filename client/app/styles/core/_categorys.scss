@@ -1,58 +1,79 @@
-.categories {
-  background-color: #17c3b2;
-  border-radius: 40px;
-  height: auto; /* Cambiado de 600px a auto para que se ajuste al contenido */
-  overflow: hidden;
+.hot-category {
+  height: 648px;
   position: relative;
-  max-width: 1112px; /* Cambiado de width a max-width */
-  margin: 0 auto; /* Centrar el contenedor */
+  width: 1320px;
 }
 
-.categories .text-wrapper {
-  color: #000000;
-  font-family: "Arial-Bold", Helvetica;
-  font-size: 48px;
-  font-weight: 700;
-  height: 55px;
-  letter-spacing: 0;
-  line-height: normal;
+.hot-category .overlap-group {
+  height: 649px;
+  left: -52px;
+  position: absolute;
+  top: -1px;
+  width: 700px;
+}
+
+.hot-category .explore-new-and {
+  color: var(--dark);
+  font-family: var(--body-2-font-family);
+  font-size: var(--body-2-font-size);
+  font-style: var(--body-2-font-style);
+  font-weight: var(--body-2-font-weight);
+  left: -298px;
+  letter-spacing: var(--body-2-letter-spacing);
+  line-height: var(--body-2-line-height);
+  position: absolute;
   text-align: center;
-  white-space: nowrap;
-  margin-top: 30px; /* Ajustado el espacio superior */
+  top: 298px;
+  transform: rotate(-90deg);
+  width: 648px;
 }
 
-.categories .overlap-group-wrapper,
-.categories .overlap-wrapper,
-.categories .div-wrapper {
-  background-color: #ffffff;
-  border-radius: 20px;
-  height: 150px;
-  overflow: hidden;
-  margin-bottom: 20px; /* Espacio entre las secciones */
+.hot-category .card-2 {
+  background-image: url(client\public\images\banners\descartables-para-delivery.jpg);
+  background-size: 100% 100%;
+  height: 648px;
+  left: 52px;
+  position: absolute;
+  top: 1px;
+  width: 648px;
 }
 
-.categories .overlap-group,
-.categories .overlap,
-.categories .overlap-2 {
-  background-image: url(../../../public/images/banners/banner-3.jpg);
+.hot-category .card-3 {
+  background-image: url(client\public\images\banners\cotillon1.jpg);
   background-position: 50% 50%;
   background-size: cover;
-  height: 100%; /* Ajustado a altura del contenedor padre */
+  height: 312px;
+  left: 672px;
+  position: absolute;
+  top: 0;
+  width: 312px;
 }
 
-.categories .div,
-.categories .div-wrapper .div {
-  color: #000000;
-  font-family: "Arial-Bold", Helvetica;
-  font-size: 36px;
-  font-weight: 700;
-  height: 41px;
-  letter-spacing: 0;
-  line-height: normal;
-  text-align: center;
-  white-space: nowrap;
-  position: relative; /* Ajustado para centrar verticalmente */
-  top: 50%; /* Ajustado para centrar verticalmente */
-  transform: translateY(-50%); /* Ajustado para centrar verticalmente */
-  margin-left: 10%; /* Ajustado para centrar horizontalmente */
+.hot-category .card-4 {
+  background-image: url(client\public\images\banners\cotillon1.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 312px;
+  left: 672px;
+  position: absolute;
+  top: 336px;
+  width: 312px;
+}
+
+.hot-category .card-instance {
+  background-image: url(client\public\images\banners\cotillon1.jpg) !important;
+  left: 1008px !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.hot-category .card-5 {
+  background-image: url(client\public\images\banners\cotillon1.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 312px;
+  left: 1008px;
+  position: absolute;
+  top: 336px;
+  width: 312px;
 }

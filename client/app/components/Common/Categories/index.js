@@ -3,26 +3,18 @@ import '../../../styles/core/_categorys.scss';
 
 export const categories = () => {
     return (
-      <div className="categories">
-        <div className="text-wrapper">Categorias</div>
-        <div className="overlap-group-wrapper">
-          <div className="overlap-group">
-            <div className="div">Utiles</div>
-          </div>
-        </div>
-        <div className="overlap-wrapper">
-          <div className="overlap">
-            <div className="div">Agendas</div>
-          </div>
-        </div>
-        <div className="div-wrapper">
-          <div className="overlap-2">
-            <div className="div">Calendarios</div>
-          </div>
-        </div>
+      <div className="hot-category">
+      <div className="overlap-group">
+        <p className="explore-new-and">EXPLORE NUESTRAS CATEGORIAS</p>
+        <div className="card-2" />
       </div>
-    );
-  };
+      <div className="card-3" />
+      <div className="card-4" />
+      <Card className="card-instance" ribbonType="sale" status="normal" type="item-category" />
+      <div className="card-5" />
+    </div>
+  );
+};
   
   export default categories;
 
