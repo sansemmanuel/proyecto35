@@ -50,7 +50,7 @@ const authHandler = async (socket, next) => {
 const socket = server => {
   const io = socketio(server, {
     cors: {
-      origin: '*',
+      origin: 'https://ecommercemdp.onrender.com',
       methods: ['GET', 'POST']
     }
   });
