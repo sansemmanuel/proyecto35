@@ -1,11 +1,11 @@
 // header styles
 .header-info {
   padding: 10px 0px;
-  background-color: black;
+  background-color: $theme-light-black;
 
   .fa,
   span {
-    color: black;
+    color: $white;
     font-size: $font-size-medium !important;
     font-weight: $font-weight-normal;
     margin: 0px 5px;
@@ -13,7 +13,7 @@
 }
 
 .header {
-  background-color: black;
+  background-color: $white;
   border-bottom: $border-primary;
 
   .logo {
