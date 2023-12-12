@@ -1,43 +1,40 @@
 /**
  *
- * MiniBrand
+ * MiniCategory
  *
  */
 
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
-const MiniBrand = props => {
-  const { brands, toggleBrand } = props;
-
+const MiniCategory = ({ categories, toggleCategory }) => {
   const handleMenuItemClick = () => {
-    toggleBrand();
+    toggleCategory();
   };
 
   return (
     <div className='mini-brand-list'>
       <div className='d-flex align-items-center justify-content-between min-brand-title'>
-        <h4 className='mb-0 text-uppercase'>Compre por </h4>
+        <h4 className='mb-0 text-uppercase'>Compre por Categoría</h4>
         <Link
-          to={'/brands'}
+          to={'/categories'}
           className='redirect-link'
           role='menuitem'
           onClick={handleMenuItemClick}
         >
-          See all
+          Ver todas
         </Link>
       </div>
       <div className='mini-brand-block'>
-        {brands.map((brand, index) => (
+        {categories.map((category, index) => (
           <div key={index} className='brand-item'>
             <Link
-              to={`/shop/brand/${brand.slug}`}
+              to={`/shop/category/${category.slug}`}
               className='brand-link'
               role='menuitem'
               onClick={handleMenuItemClick}
             >
-              {brand.name}
+              {category.name}
             </Link>
           </div>
         ))}
@@ -46,4 +43,4 @@ const MiniBrand = props => {
   );
 };
 
-export default MiniBrand;
+export default MiniCategory;

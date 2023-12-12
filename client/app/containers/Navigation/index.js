@@ -81,11 +81,10 @@ class Navigation extends React.PureComponent {
         <div className='d-flex'>
           <img
             className='item-image'
-            src={`${
-              suggestion.imageUrl
+            src={`${suggestion.imageUrl
                 ? suggestion.imageUrl
                 : '/images/placeholder-image.png'
-            }`}
+              }`}
           />
           <div>
             <Container>
@@ -226,7 +225,7 @@ class Navigation extends React.PureComponent {
               sm={{ size: 12, order: 2 }}
               md={{ size: 9, order: 1 }}
               lg={{ size: 4, order: 3 }}
-              // className='px-0'
+            // className='px-0'
             >
               <Navbar color='light' light expand='md' className='mt-1 mt-md-0'>
                 <CartIcon
@@ -235,24 +234,27 @@ class Navigation extends React.PureComponent {
                   onClick={toggleCart}
                 />
                 <Nav navbar>
-                {categories && categories.length > 0 && (
-  <Dropdown nav inNavbar>
-    <DropdownToggle nav>
-      Categorías
-      <span className='fa fa-chevron-down dropdown-caret'></span>
-    </DropdownToggle>
-    <DropdownMenu right>
-      {categories.map(category => (
-        <DropdownItem key={category.id}>
-          <NavLink tag={Link} to={`/category/${category.slug}`}>
-            {category.name}
-          </NavLink>
-        </DropdownItem>
-      ))}
-    </DropdownMenu>
-  </Dropdown>
-)}
-
+                  {brands && brands.length > 0 && (
+                    <Dropdown
+                      nav
+                      inNavbar
+                      toggle={() => this.toggleBrand()}
+                      isOpen={isBrandOpen}
+                    >
+                      <DropdownToggle nav>
+                        Brands
+                        <span className='fa fa-chevron-down dropdown-caret'></span>
+                      </DropdownToggle>
+                      <DropdownMenu right className='nav-brand-dropdown'>
+                        <div className='mini-brand'>
+                          <MiniBrand
+                            brands={brands}
+                            toggleBrand={() => this.toggleBrand()}
+                          />
+                        </div>
+                      </DropdownMenu>
+                    </Dropdown>
+                  )}
                   <NavItem>
                     <NavLink
                       tag={ActiveLink}
