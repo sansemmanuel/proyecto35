@@ -73,9 +73,9 @@ class ProductPage extends React.PureComponent {
                       }`}
                   />
                   {product.inventory <= 0 && !shopFormErrors['quantity'] ? (
-                    <p className='stock out-of-stock'>Out of stock</p>
+                    <p className='stock out-of-stock'>Sin Stock</p>
                   ) : (
-                    <p className='stock in-stock'>In stock</p>
+                    <p className='stock in-stock'>Stock Disponible</p>
                   )}
                 </div>
               </Col>

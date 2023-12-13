@@ -21,7 +21,7 @@ class Radio extends React.Component {
     this.setState({
       size: event.target.value
     });
-    this.props.handleChangeSubmit(event.target.name,event.target.value);
+    this.props.handleChangeSubmit(event.target.name, event.target.value);
   }
 
   render() {
@@ -37,7 +37,7 @@ class Radio extends React.Component {
                 checked={this.state.size === "Newest First"}
                 onChange={this.handleChange}
               />
-              Newest First
+              Mas Recientes Primero
             </label>
           </li>
 
@@ -50,7 +50,7 @@ class Radio extends React.Component {
                 checked={this.state.size === "Price High to Low"}
                 onChange={this.handleChange}
               />
-              Price High to Low
+              Precio más Alto a Mas Bajo
             </label>
           </li>
 
@@ -63,7 +63,7 @@ class Radio extends React.Component {
                 checked={this.state.size === "Price Low to High"}
                 onChange={this.handleChange}
               />
-              Price Low to High
+              Precio más Bajo a Mas Alto
             </label>
           </li>
         </ul>
