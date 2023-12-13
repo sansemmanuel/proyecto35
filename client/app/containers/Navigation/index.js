@@ -82,8 +82,8 @@ class Navigation extends React.PureComponent {
           <img
             className='item-image'
             src={`${suggestion.imageUrl
-                ? suggestion.imageUrl
-                : '/images/placeholder-image.png'
+              ? suggestion.imageUrl
+              : '/images/placeholder-image.png'
               }`}
           />
           <div>
@@ -238,7 +238,11 @@ class Navigation extends React.PureComponent {
                     <Dropdown
                       nav
                       inNavbar
-                      toggle={() => this.toggleBrand()}
+                      toggle={() => {
+                        // Realiza un fetch de las categorías al hacer clic
+                        this.props.fetchStoreCategories();
+                        this.toggleBrand(); // Asegúrate de mantener la lógica para abrir/cerrar el menú
+                      }}
                       isOpen={isBrandOpen}
                     >
                       <DropdownToggle nav>
@@ -246,14 +250,14 @@ class Navigation extends React.PureComponent {
                         <span className='fa fa-chevron-down dropdown-caret'></span>
                       </DropdownToggle>
                       <DropdownMenu right className='nav-brand-dropdown'>
-                        <div className='mini-brand'>
-                          <MiniBrand
-                            brands={brands}
-                            toggleBrand={() => this.toggleBrand()}
-                          />
-                        </div>
+                        {brands && brands.length > 0 ? (
+                          <MiniBrand brands={brands} toggleBrand={() => this.toggleBrand()} />
+                        ) : (
+                          <div>No hay marcas disponibles</div>
+                        )}
                       </DropdownMenu>
                     </Dropdown>
+
                   )}
                   <NavItem>
                     <NavLink

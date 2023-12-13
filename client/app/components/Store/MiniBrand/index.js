@@ -1,26 +1,19 @@
-/**
- *
- * MiniBrand
- *
- */
-
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
 const MiniBrand = props => {
-  const { brands, toggleBrand } = props;
+  const { items, toggleItem, itemType } = props;
 
   const handleMenuItemClick = () => {
-    toggleBrand();
+    toggleItem();
   };
 
   return (
     <div className='mini-brand-list'>
       <div className='d-flex align-items-center justify-content-between min-brand-title'>
-        <h4 className='mb-0 text-uppercase'>Compre por Categorias</h4>
+        <h4 className='mb-0 text-uppercase'>Compre por {itemType}</h4>
         <Link
-          to={'/brands'}
+          to={`/${itemType}s`} // Puedes ajustar la ruta según tus necesidades
           className='redirect-link'
           role='menuitem'
           onClick={handleMenuItemClick}
@@ -29,15 +22,15 @@ const MiniBrand = props => {
         </Link>
       </div>
       <div className='mini-brand-block'>
-        {brands.map((brand, index) => (
+        {items.map((item, index) => (
           <div key={index} className='brand-item'>
             <Link
-              to={`/shop/brand/${brand.slug}`}
+              to={`/shop/${itemType}/${item.slug}`}
               className='brand-link'
               role='menuitem'
               onClick={handleMenuItemClick}
             >
-              {brand.name}
+              {item.name}
             </Link>
           </div>
         ))}
