@@ -11,9 +11,9 @@ const MiniBrand = props => {
   return (
     <div className='mini-brand-list'>
       <div className='d-flex align-items-center justify-content-between min-brand-title'>
-        <h4 className='mb-0 text-uppercase'>Compre por {itemType}</h4>
+        <h4 className='mb-0 text-uppercase'>{itemType}</h4>
         <Link
-          to={`/${itemType}s`} // Puedes ajustar la ruta según tus necesidades
+          to={`/category`} // Puedes ajustar la ruta según tus necesidades
           className='redirect-link'
           role='menuitem'
           onClick={handleMenuItemClick}
@@ -25,7 +25,7 @@ const MiniBrand = props => {
         {items.map((item, index) => (
           <div key={index} className='brand-item'>
             <Link
-              to={`/shop/${itemType}/${item.slug}`}
+              to={`/shop/category/${item.slug}`}
               className='brand-link'
               role='menuitem'
               onClick={handleMenuItemClick}
