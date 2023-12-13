@@ -10,7 +10,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
-import ProductCarousel from '../components/ProductCarousel';
+import ProductCarousel from '../components/Common/ProductCarousel';
 import React, { useEffect } from 'react';
 
 import actions from '../../actions';
@@ -48,22 +48,11 @@ class Homepage extends React.PureComponent {
         </div>
         <Row className='flex-row justify-content-center align-items-center'>
           <Col>
-            <div className='home-carousel'>
-              <CarouselSlider
-                swipeable={true}
-                showDots={true}
-                infinite={true}
-                autoPlay={false}
-                slides={banners}
-                responsive={responsiveOneItemCarousel}
-              >
-                {banners.map((item, index) => (
-                  <div key={index}>
-                    <img src={item.imageUrl} alt={`Banner ${index + 1}`} />
-                    {/* Puedes agregar más contenido o personalización aquí */}
-                  </div>
-                ))}
-              </CarouselSlider>
+            <div>
+              <h2>Productos Destacados</h2>
+              {featuredProducts && featuredProducts.length > 0 && (
+                <ProductCarousel products={featuredProducts} />
+              )}
             </div>
           </Col>
         </Row>
