@@ -13,7 +13,7 @@ const MiniBrand = props => {
       <div className='d-flex align-items-center justify-content-between min-brand-title'>
         <h4 className='mb-0 text-uppercase'>{itemType}</h4>
         <Link
-          to={`/category`} // Puedes ajustar la ruta según tus necesidades
+          to={`/shop/category`} // Puedes ajustar la ruta según tus necesidades
           className='redirect-link'
           role='menuitem'
           onClick={handleMenuItemClick}
