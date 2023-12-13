@@ -74,7 +74,7 @@ const Summary = props => {
       ) : (
         <NotFound>
           <ReviewIcon width='40' height='40' className='my-2' />
-          <p className='mb-2'>Be the first to add a review.</p>
+          <p className='mb-2'>Se el primero en escribir una reseña</p>
         </NotFound>
       )}
     </div>
