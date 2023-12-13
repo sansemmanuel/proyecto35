@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
-import ProductCarousel from '../components/Common/ProductCarousel';
+import ProductCarousel from './../../components/Common/CarouselSlider';
 import React, { useEffect } from 'react';
 
 import actions from '../../actions';
