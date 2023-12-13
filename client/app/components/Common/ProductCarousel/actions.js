@@ -13,7 +13,7 @@ const fetchFeaturedProductsSuccess = featuredProducts => ({
 const fetchProducts = () => {
     return async dispatch => {
         try {
-            const response = await fetch('/api/products'); // Ajusta la ruta según tu backend
+            const response = await fetch('/api/product'); // Ajusta la ruta según tu backend
             const data = await response.json();
 
             dispatch(fetchProductsSuccess(data));
