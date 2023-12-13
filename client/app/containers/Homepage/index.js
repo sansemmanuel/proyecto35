@@ -1,13 +1,4 @@
-/**
- *
- * Homepage
- *
- */
-
 import React from 'react';
-
-//import 'client\app\styles\core\_homepage.scss'
-
 import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
 import ProductCarousel from '../components/Common/ProductCarousel';
@@ -20,10 +11,13 @@ import { responsiveOneItemCarousel } from '../../components/Common/CarouselSlide
 
 class Homepage extends React.PureComponent {
   render() {
+    const { featuredProducts } = this.props;
+
     return (
       <div className='homepage'>
+        {/* Carrusel principal */}
         <Row className='flex-row justify-content-center align-items-center'>
-          <Col >
+          <Col>
             <div className='home-carousel'>
               <CarouselSlider
                 swipeable={true}
@@ -34,18 +28,19 @@ class Homepage extends React.PureComponent {
                 responsive={responsiveOneItemCarousel}
               >
                 {banners.map((item, index) => (
-                  <img key={index} src={item.imageUrl} />
+                  <img key={index} src={item.imageUrl} alt={`Banner ${index}`} />
                 ))}
               </CarouselSlider>
             </div>
           </Col>
-
-
         </Row>
 
+        {/* Barra de color */}
         <div className='color-bar' style={{ backgroundColor: 'white', height: 10 }}>
-          {/*div jeje*/}
+          {/* Contenido opcional */}
         </div>
+
+        {/* Sección de productos destacados */}
         <Row className='flex-row justify-content-center align-items-center'>
           <Col>
             <div>
@@ -57,20 +52,19 @@ class Homepage extends React.PureComponent {
           </Col>
         </Row>
 
+        {/* Otra barra de color u otros elementos de la página */}
         <div className='color-bar' style={{ backgroundColor: 'white', height: 10 }}>
-          {/* Otros elementos de tu página */}
+          {/* Contenido opcional */}
         </div>
       </div>
-
-
-
-
-    )
+    );
   }
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    featuredProducts: state.featuredProducts, // Ajusta esto según cómo almacenes tus productos destacados en el estado
+  };
 };
 
 export default connect(mapStateToProps, actions)(Homepage);
