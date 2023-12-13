@@ -30,7 +30,7 @@ import * as contact from './containers/Contact/actions';
 import * as order from './containers/Order/actions';
 import * as review from './containers/Review/actions';
 import * as wishlist from './containers/WishList/actions';
-import * as featuredProducts from './containers/ProductCarousel/actions';
+import * as featuredProducts from './components/Common/ProductCarousel/actions';
 
 export default function mapDispatchToProps(dispatch) {
   return bindActionCreators(
