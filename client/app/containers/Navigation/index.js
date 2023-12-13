@@ -246,17 +246,18 @@ class Navigation extends React.PureComponent {
                       isOpen={isBrandOpen}
                     >
                       <DropdownToggle nav>
-                        Brands
+                        Categorías
                         <span className='fa fa-chevron-down dropdown-caret'></span>
                       </DropdownToggle>
                       <DropdownMenu right className='nav-brand-dropdown'>
-                        {brands && brands.length > 0 ? (
-                          <MiniBrand brands={brands} toggleBrand={() => this.toggleBrand()} />
+                        {categories && categories.length > 0 ? (
+                          <MiniBrand items={categories} toggleItem={() => this.toggleBrand()} itemType="Categoría" />
                         ) : (
-                          <div>No hay marcas disponibles</div>
+                          <div>No hay categorías disponibles</div>
                         )}
                       </DropdownMenu>
                     </Dropdown>
+
 
                   )}
                   <NavItem>
