@@ -10,6 +10,10 @@ import CarouselSlider from '../../components/Common/CarouselSlider';
 import { responsiveOneItemCarousel } from '../../components/Common/CarouselSlider/utils';
 
 class Homepage extends React.PureComponent {
+  componentDidMount() {
+    // Llama a la acción para cargar todos los productos
+    this.props.fetchProducts();
+  }
   render() {
     const { featuredProducts } = this.props;
 

@@ -1,0 +1,32 @@
+// actions.js
+
+const fetchProductsSuccess = products => ({
+    type: 'FETCH_PRODUCTS_SUCCESS',
+    payload: products,
+});
+
+const fetchFeaturedProductsSuccess = featuredProducts => ({
+    type: 'FETCH_FEATURED_PRODUCTS_SUCCESS',
+    payload: featuredProducts,
+});
+
+const fetchProducts = () => {
+    return async dispatch => {
+        try {
+            const response = await fetch('/api/products'); // Ajusta la ruta según tu backend
+            const data = await response.json();
+
+            dispatch(fetchProductsSuccess(data));
+
+            // Filtra los productos destacados y los almacena en el estado
+            const featuredProducts = data.filter(product => product.isFeatured);
+            dispatch(fetchFeaturedProductsSuccess(featuredProducts));
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
+    };
+};
+
+export default {
+    fetchProducts,
+};
