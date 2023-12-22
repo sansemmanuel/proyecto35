@@ -14,7 +14,7 @@ class Homepage extends React.PureComponent {
     this.props.fetchProducts();
   }
   render() {
-    const { featuredProducts } = this.props;
+    const { products } = this.props;
 
     return (
       <div className='homepage'>
@@ -48,8 +48,8 @@ class Homepage extends React.PureComponent {
           <Col>
             <div>
               <h2>Productos Destacados</h2>
-              {featuredProducts && featuredProducts.length > 0 && (
-                <ProductCarousel products={featuredProducts} />
+              {products && products.length > 0 && (
+                <ProductCarousel products={products} />
               )}
             </div>
           </Col>
@@ -66,7 +66,7 @@ class Homepage extends React.PureComponent {
 
 const mapStateToProps = state => {
   return {
-    featuredProducts: state.featuredProducts, // Ajusta esto según cómo almacenes tus productos destacados en el estado
+    products: state.products, // Actualizado a 'products'
   };
 };
 

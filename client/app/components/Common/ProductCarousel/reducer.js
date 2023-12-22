@@ -1,15 +1,13 @@
-// featuredProductsReducer.js
-
 const initialState = {
-    featuredProducts: [],
+    products: [], // Cambia el nombre a products
 };
 
-const featuredProductsReducer = (state = initialState, action) => {
+const productsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'FETCH_FEATURED_PRODUCTS_SUCCESS':
+        case 'FETCH_PRODUCTS_SUCCESS':
             return {
                 ...state,
-                featuredProducts: action.payload,
+                products: action.payload,
             };
         // Otros casos y lógica según tus necesidades
         default:
@@ -17,4 +15,4 @@ const featuredProductsReducer = (state = initialState, action) => {
     }
 };
 
-export default featuredProductsReducer;
+export default productsReducer;
