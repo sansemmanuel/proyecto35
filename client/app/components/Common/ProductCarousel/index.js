@@ -2,8 +2,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 
-
-
 const ProductCarousel = ({ products }) => {
     const settings = {
         dots: true,
@@ -30,11 +28,13 @@ const ProductCarousel = ({ products }) => {
     return (
         <Slider {...settings}>
             {products.map((product) => (
-                <div key={product.id}>
-                    <Link to={`/product/${product.slug}`}>
-                        <img src={product.imageUrl} alt={product.name} />
-                        <h4>{product.name}</h4>
-                        <p>{product.price}</p>
+                <div key={product.id} className="carousel-item">
+                    <Link to={`/product/${product.slug}`} className="product-link">
+                        <img src={product.imageUrl} alt={product.name} className="product-image" />
+                        <div className="product-details">
+                            <h4 className="product-name">{product.name}</h4>
+                            <p className="product-price">{product.price}</p>
+                        </div>
                     </Link>
                 </div>
             ))}
