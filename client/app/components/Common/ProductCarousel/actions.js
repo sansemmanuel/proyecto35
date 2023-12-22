@@ -19,8 +19,8 @@ const fetchProducts = () => {
             dispatch(fetchProductsSuccess(data));
 
             // Filtra los productos destacados y los almacena en el estado
-            const featuredProducts = data.filter(product => product.isFeatured);
-            dispatch(fetchFeaturedProductsSuccess(featuredProducts));
+            // const products = data.filter(products);
+            dispatch(fetchFeaturedProductsSuccess(products));
         } catch (error) {
             console.error('Error fetching products:', error);
         }
